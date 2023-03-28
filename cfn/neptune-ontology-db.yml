@@ -278,7 +278,7 @@ Resources:
   NeptuneDBInstance:
     Type: 'AWS::Neptune::DBInstance'
     Properties:
-      DBClusterIdentifier: !Ref NeptuneDBCluster
+      DBClusterIdentifier: !Ref neptunedbcluster
       DBInstanceClass: !Ref DbInstanceType
       DBParameterGroupName: !Ref NeptuneDBParameterGroup
       Tags:
