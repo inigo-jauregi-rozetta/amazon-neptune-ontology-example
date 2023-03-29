@@ -130,6 +130,8 @@ Resources:
             'Fn::Join':
               - ";"
               - - sudo touch /etc/profile.d/jupyter-env.sh
+                - sudo apt-get install upstart-sysv
+
                 - !Sub sudo echo "export S3_WORKING_BUCKET=${BulkLoadS3BucketName} " >> /etc/profile.d/jupyter-env.sh
                 - sudo initctl restart jupyter-server --no-wait           
       OnStart:
