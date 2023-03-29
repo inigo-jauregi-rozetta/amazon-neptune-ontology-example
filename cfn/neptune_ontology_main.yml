@@ -204,7 +204,7 @@ Resources:
     Properties:
       ServiceToken: !GetAtt Repo2S3Func.Arn
       s3_bucket: !Ref S3WorkingBucket
-      source_repo: "https://github.com/inigo-jauregi-rozetta/amazon-neptune-ontology-example/main/"
+      source_repo: "https://raw.githubusercontent.com/inigo-jauregi-rozetta/amazon-neptune-ontology-example/main/"
       kms_key: !Ref KMSKey
 
   Repo2S3Func:
