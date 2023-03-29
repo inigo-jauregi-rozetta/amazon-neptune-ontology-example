@@ -212,7 +212,7 @@ Resources:
   NeptuneDBClusterParameterGroup:
     Type: 'AWS::Neptune::DBClusterParameterGroup'
     Properties:
-      Family: neptune1
+      Family: neptune1.2
       Description: test-cfn-neptune-db-cluster-parameter-group-description
       Parameters:
         neptune_enable_audit_log: 1
@@ -228,7 +228,7 @@ Resources:
   NeptuneDBParameterGroup:
     Type: 'AWS::Neptune::DBParameterGroup'
     Properties:
-      Family: neptune1
+      Family: neptune1.2
       Description: test-cfn-neptune-db-parameter-group-description
       Parameters:
         neptune_query_timeout: !Ref NeptuneQueryTimeout
