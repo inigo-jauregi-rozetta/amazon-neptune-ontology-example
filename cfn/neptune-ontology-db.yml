@@ -81,7 +81,7 @@ Resources:
           - !Ref Subnet3
       Tags:
         - Key: Name
-          Value: !Sub 'Neptune-${Env}'
+          Value: !Sub 'Neptune-Subnet-${Env}'
         - Key: StackId
           Value: !Sub '${AWS::StackId}'
         - Key: Stack
@@ -212,13 +212,13 @@ Resources:
   NeptuneDBClusterParameterGroup:
     Type: 'AWS::Neptune::DBClusterParameterGroup'
     Properties:
-      Family: neptune2
-      Description: test-cfn-neptune-db-cluster-parameter-group-description
+      Family: neptune1
+      Description: neptune-db-cluster-parameter-group
       Parameters:
         neptune_enable_audit_log: 1
       Tags:
         - Key: Name
-          Value: !Sub 'Neptune-${Env}'
+          Value: !Sub 'Neptune-ClusterPG-${Env}'
         - Key: StackId
           Value: !Sub '${AWS::StackName}'
         - Key: Stack
@@ -228,13 +228,13 @@ Resources:
   NeptuneDBParameterGroup:
     Type: 'AWS::Neptune::DBParameterGroup'
     Properties:
-      Family: neptune2
-      Description: test-cfn-neptune-db-parameter-group-description
+      Family: neptune1
+      Description: cfn-neptune-db-parameter-group
       Parameters:
         neptune_query_timeout: !Ref NeptuneQueryTimeout
       Tags:
         - Key: Name
-          Value: !Sub 'Neptune-${Env}'
+          Value: !Sub 'Neptune-PG-${Env}'
         - Key: StackId
           Value: !Sub '${AWS::StackId}'
         - Key: Stack
@@ -265,7 +265,7 @@ Resources:
         - audit
       Tags:
         - Key: Name
-          Value: !Sub 'Neptune-${Env}'
+          Value: !Sub 'Neptune-Clus-${Env}'
         - Key: StackId
           Value: !Sub '${AWS::StackId}'
         - Key: Stack
@@ -278,12 +278,12 @@ Resources:
   NeptuneDBInstance:
     Type: 'AWS::Neptune::DBInstance'
     Properties:
-      DBClusterIdentifier: !Ref NeptuneDBCluster
+      DBClusterIdentifier: !Ref neptunedbcluster
       DBInstanceClass: !Ref DbInstanceType
       DBParameterGroupName: !Ref NeptuneDBParameterGroup
       Tags:
         - Key: Name
-          Value: !Sub 'Neptune-${Env}'
+          Value: !Sub 'NeptuneDB-Inst-${Env}'
         - Key: StackId
           Value: !Sub '${AWS::StackId}'
         - Key: Stack
